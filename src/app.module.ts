@@ -11,6 +11,7 @@ import { ProductoModule } from './components/producto/producto.module';
 import { UsuarioModule } from './components/usuario/usuario.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from './components/auth/auth.module';
 
 @Module({
   imports: [
@@ -28,7 +29,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         synchronize: false
       })
     }),
-    CarritoModule, ClienteModule, OrdenModule, MetodosEnvioModule, MetodosPagoModule, ItemsModule, ProductoModule, UsuarioModule],
+    CarritoModule, ClienteModule, OrdenModule, MetodosEnvioModule, MetodosPagoModule, ItemsModule, ProductoModule, UsuarioModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
