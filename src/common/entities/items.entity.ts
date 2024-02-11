@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
+import { Producto } from './producto.entity';
+import { Carrito } from './carrito.entity';
 
 @Entity({name : 'Items'})
 export class Items{
@@ -17,10 +19,18 @@ export class Items{
     @Column()
     descuento : number;
 
-    @Column()
-    Producto_idProducto : number;
+    // @Column()
+    // Producto_idProducto : number;
 
-    @Column()
-    Carrito_idCarrito : number;
+    // @Column()
+    // Carrito_idCarrito : number;
+
+    @ManyToOne(_type => Producto, producto => producto.idProducto)
+    @JoinColumn({ name: 'Producto_idProducto ' })
+    Producto_idProducto : Producto;
+
+    @ManyToOne(_type => Carrito, carrito => carrito.idCarrito)
+    @JoinColumn({ name: 'Carrito_idCarrito ' })
+    Carrito_idCarrito : Carrito;
 
 }
