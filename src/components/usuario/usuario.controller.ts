@@ -12,7 +12,8 @@ export class UsuarioController {
     constructor(
         private readonly usuarioService : UsuarioService,
     ){}
-
+    
+    @Public()   
     @Get()
     findAll(): Promise<UsuarioResponseDto[]>{
         return this.usuarioService.findAll();
