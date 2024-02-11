@@ -12,6 +12,8 @@ import { UsuarioModule } from './components/usuario/usuario.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './components/auth/auth.module';
+import { APP_GUARD } from '@nestjs/core';
+import { AuthGuard } from './components/auth/auth.guard';
 
 @Module({
   imports: [
@@ -31,6 +33,9 @@ import { AuthModule } from './components/auth/auth.module';
     }),
     CarritoModule, ClienteModule, OrdenModule, MetodosEnvioModule, MetodosPagoModule, ItemsModule, ProductoModule, UsuarioModule, AuthModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService,   {
+    provide: APP_GUARD,
+    useClass: AuthGuard,
+  }],
 })
 export class AppModule {}
