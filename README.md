@@ -71,3 +71,12 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## Respuestas 
+ - 5 : Para la paginación se realizaria un DTO que tenga el offset y el limit, para pedir
+ en el request la cantidad de items por pagina, despues modificar la función de servicio para 
+ que al momento de realizar la busqueda en bd pueda realizar el paginado de la información.
+
+ - 6 : Para documentar se puede usar la herramienta swagger con la especificacion de openApi ya que genera una pagina que tiene cada uno de los endpoint con sus entites, tambien se puede realziar con postman obteniedno tambien archivos que se pueden compartir a traves de los equipos.
+ 
+  
