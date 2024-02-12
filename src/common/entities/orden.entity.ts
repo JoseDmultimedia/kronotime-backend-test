@@ -2,17 +2,18 @@ import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColum
 import { Carrito } from './carrito.entity';
 import { MetodosPago } from './metodosPago.entity';
 import { MetodosEnvio } from './metodosEnvio.entity';
+import { Cliente } from './cliente.entity';
 
 @Entity({name : 'Orden'})
 export class Orden{
     @PrimaryGeneratedColumn()
-    ordenId: number;
+    OrdenId: number;
 
     @Column()
     numero_orden : string;
 
-    @Column()
-    Cliente_idCliente : number;
+    // @Column()
+    // Cliente_idCliente : number;
 
     // @Column()
     // Carrito_idCarrito : number;
@@ -24,15 +25,19 @@ export class Orden{
     // Metodos_de_pago_idMetodos_de_pago : number;
 
     @ManyToOne(_type => Carrito, carrito => carrito.idCarrito)
-    @JoinColumn({ name: 'Carrito_idCarrito ' })
+    @JoinColumn({ name: 'Carrito_idCarrito' })
     Carrito_idCarrito : Carrito;
 
+    @ManyToOne(_type => Cliente, cliente => cliente.idCliente)
+    @JoinColumn({ name: 'Cliente_idCliente' })
+    Cliente_idCliente : Cliente;
+
     @ManyToOne(_type => MetodosPago, metodosPago => metodosPago.idMetodos_de_pago)
-    @JoinColumn({ name: 'Metodos_de_pago_idMetodos_de_pago  ' })
+    @JoinColumn({ name: 'Metodos_de_pago_idMetodos_de_pago' })
     Metodos_de_pago_idMetodos_de_pago  : MetodosPago;
 
     @ManyToOne(_type => MetodosEnvio, MetodosEnvio => MetodosEnvio.idMetodos_de_envio)
-    @JoinColumn({ name: 'Metodos_de_envio_idMetodos_de_envio ' })
+    @JoinColumn({ name: 'Metodos_de_envio_idMetodos_de_envio' })
     Metodos_de_envio_idMetodos_de_envio : MetodosEnvio;
 
 }

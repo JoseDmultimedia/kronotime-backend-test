@@ -32,7 +32,6 @@ export class ClienteService {
 
         const cliente = new Cliente();
 
-        cliente.idCliente = clienteToCreate.idCliente;
         cliente.nombre = clienteToCreate.nombre;
         cliente.email = clienteToCreate.email;
         cliente.telefono = clienteToCreate.telefono;

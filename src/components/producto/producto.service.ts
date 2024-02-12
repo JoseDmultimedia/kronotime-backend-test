@@ -27,7 +27,6 @@ export class ProductoService {
     async create(productoToCreate: CreateProductoDto): Promise<Producto> {
         const producto = new Producto();
 
-        producto.idProducto = productoToCreate.idProducto;
         producto.nombre = productoToCreate.nombre;
         producto.precio = productoToCreate.precio;
         producto.sku = productoToCreate.sku;

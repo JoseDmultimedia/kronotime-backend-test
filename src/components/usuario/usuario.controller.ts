@@ -19,13 +19,13 @@ export class UsuarioController {
         return this.usuarioService.findAll();
     }
 
-    // @UseGuards(AuthGuard)
     @Public()
     @Get(':idUsuario')
     findById(@Param('idUsuario') idUsuario : number): Promise<UsuarioResponseDto>{
         return this.usuarioService.findById(idUsuario);
     }
-
+    
+    @Public()
     @Post()
     create(@Body() usuarioToCreate : CreateUsuarioDto) : Promise<Usuario>{
         return this.usuarioService.create(usuarioToCreate);

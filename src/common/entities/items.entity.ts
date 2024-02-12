@@ -26,11 +26,11 @@ export class Items{
     // Carrito_idCarrito : number;
 
     @ManyToOne(_type => Producto, producto => producto.idProducto)
-    @JoinColumn({ name: 'Producto_idProducto ' })
+    @JoinColumn({ name: 'Producto_idProducto' })
     Producto_idProducto : Producto;
 
     @ManyToOne(_type => Carrito, carrito => carrito.idCarrito)
-    @JoinColumn({ name: 'Carrito_idCarrito ' })
+    @JoinColumn({ name: 'Carrito_idCarrito' })
     Carrito_idCarrito : Carrito;
 
 }
